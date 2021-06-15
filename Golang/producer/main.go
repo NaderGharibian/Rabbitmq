@@ -37,15 +37,15 @@ func main() {
 	if err != nil {
 		fmt.Println(err)
 	}
-
+	body := "{name:nader,family:gharibian, message:hello world}"
 	err = channel.Publish(
 		"",
 		"TestQueue",
 		false,
 		false,
 		amqp.Publishing{
-			ContentType: "text/plain",
-			Body:        []byte("Hello World"),
+			ContentType: "application/json",
+			Body:        []byte(body),
 		},
 	)
 
